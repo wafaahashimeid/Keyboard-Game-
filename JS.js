@@ -1,5 +1,3 @@
-var audioRight = new Audio('assets/right.wav');
-var audioWrong = new Audio('assets/wrong.wav');
 const keys = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
 const timestamps = [];
 timestamps.unshift(getTimestamp());
@@ -19,44 +17,37 @@ function targetRandomKey() {
 function getTimestamp() {
   return Math.floor(Date.now() / 1000)
 }
+var count=0;
+
 document.addEventListener("keyup", event => {
   const keyPressed = String.fromCharCode(event.keyCode);
   const keyElement = document.getElementById(keyPressed);
   const highlightedKey = document.querySelector(".selected");
+  
   keyElement.classList.add("hit")
   keyElement.addEventListener('animationend', () => {
     keyElement.classList.remove("hit")
-  })
+  }) 
+  var audioRight = new Audio('audio/fainalright.mp3');
+  var audioWrong = new Audio('audio/fainalwrong.mp3');
   if (keyPressed === highlightedKey.innerHTML) {
     timestamps.unshift(getTimestamp());
     const elapsedTime = timestamps[0] - timestamps[1];
     console.log(`Character per minute ${60/elapsedTime}`)
     highlightedKey.classList.remove("selected");
     targetRandomKey();
-
-
-    window.onload = function(){
-      count = 0;
-    var btn = document.getElementById("myBtn");
-    myBtn.onclick = function(){
-        count++;
-          if(count == 10){
-            window.open("congrats.html", null, "width=400,height=300");
-          }}};
-
     audioRight.play();
+    count++;
+    console.log(`counts are : ${count}`);
+    if(count === 10){
+      window.open("congrats.html", null, "width=400,height=300");
+      count = 0;
+    }
   } 
   else
   {
     audioWrong.play();
+
   }
 })
- const stars = document.querySelectorAll(".stars i");
- stars.forEach((star, index1) => {
-   star.addEventListener("click", () => {
-     stars.forEach((star, index2) => {
-       index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
-     });
-   });
- });
- 
+targetRandomKey();

@@ -1,0 +1,75 @@
+/* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+    background: url(img/background2.jpg);
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    min-height: 100vh;
+}
+.rating-box {
+  position: relative;
+  background: #fff;
+  padding: 25px 50px 35px;
+  border-radius: 25px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+.rating-box header {
+  font-size: 22px;
+  color: #dadada;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.rating-box .stars {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.stars i {
+  color: #e6e6e6;
+  font-size: 35px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.stars i.active {
+  color: #ff9c1a;
+}
+.main
+  {
+    color: #fff;
+    background: rgb(207, 83, 33);
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    display: inline;
+    padding: 0.9375em 2.1875em;
+    letter-spacing: 1px;
+    border-radius: 15px;
+    margin-bottom: 50px;
+    transition: 0.7s ease;
+    border:rgb(207, 83, 33) ;
+    align-items: center;
+    display: flex;
+    transition: width 3s;
+    transition: transform 1s ease;
+  }
+  #myBtn,.main:hover
+  {
+    background-color: rgb(186, 72, 28);
+    transform: scale(1.1);
+  }
